@@ -1,0 +1,40 @@
+body {
+    background-image: url(../images/bg-1.jpg);
+}
+
+.box.dark-box{
+    color: white;
+    background-color: black;
+    .title{
+        color: white;
+    }
+}
+
+.box {
+    opacity: 0.7;
+}
+
+.scrollable{
+    height: 50vh;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 10px;
+}
+
+.mobile-links{
+    justify-content: center;
+}
+
+.DescriptionDisplay{
+    font-size: 4rem;
+    white-space: nowrap;
+    color: #878787;
+    font-weight: lighter;
+    overflow: hidden;
+}
+
