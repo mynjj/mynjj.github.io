@@ -37,5 +37,7 @@ body {
     color: #878787;
     font-weight: lighter;
     overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
