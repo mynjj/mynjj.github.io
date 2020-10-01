@@ -3,7 +3,7 @@ import {Link} from 'gatsby';
 import githubLogo from './github.png';
 import linkedInLogo from './linkedin.png';
 import "./navbar.scss";
-import cvPdf from "../../cv.pdf";
+import cvPdf from "../../public-cv.pdf";
 
 const Github = ({className=''}) => (
     <a className={className} target="_blank" href="https://github.com/mynjj">

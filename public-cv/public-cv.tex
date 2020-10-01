@@ -3,7 +3,6 @@
 % Based on https://github.com/sb2nov/resume
 % from Sourabh Bajaj
 %------------------------
-
 \documentclass[letterpaper,11pt]{article}
 
 \usepackage{latexsym}
@@ -74,7 +73,7 @@
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Joshua Martínez} & Email : \href{mailto:djoshuamartinezpineda@gmail.com}{djoshuamartinezpineda@gmail.com}\\
-  \href{https://mynjj.github.io/joshua}{https://mynjj.github.io/joshua} &  \\
+  \href{https://mynjj.github.io}{https://mynjj.github.io} &  \\
 \end{tabular*}
 
 
@@ -100,31 +99,44 @@
       {TIDE}{Mexico City, Mexico}
       {Software Engineer}{Jan. 2019 - Aug. 2020}
       \resumeItemListStart
-
-        \resumeItem{Scotiabank's online pride parade}
-          {Description}
         \resumeItem{Employee time clock}
-          {Description}
+          {Raspberry Pi's with multiple identification and synchronization features. Integrated
+            sensors SDK's (C/Java), implemented features for the main service
+            (Node.js), and UI(React)}
         \resumeItem{Airport Lounge app}
-          {Description}
+          {Android/iOS app with React Native. Several features, integrated to an
+          existing backend and created a backend-for-frontend for other features
+          (Node.js/sails.js).}
+        \resumeItem{Scotiabank's online pride parade}
+        {Basic MMORPG for 2020's stay@home Pride Parade. AWS/EC2 instances
+          running a Phaser.js game, connecting to WebSocket servers (Typescript). Redis 
+          used for chat features.}
         \resumeItem{IOT devices monitor}
-          {Description}
+          {Utilities to provide software updates, remote SSH access and stats
+            recopilation for remote technical support. Implemented features on
+            both sides (Node.js, PHP/Symfony, React).}
         \resumeItem{Coca-cola promotional game}
-          {Description}
+          {Soccer game for marketing stands of Coca-cola running on Raspberry Pi's,
+            controlled by a Wii controller. Created with Python/Pygame.}
         \resumeItem{Airport Lounge software}
-          {Description}
+          {Software spanning several company areas. Implemented several
+            features, on both backend (PHP/Symfony) and frontend (React).}
         \resumeItem{Restaurant software}
-          {Description}
+          {Highly customized restaurant software. Implemented several features,
+            on both backend (PHP/Symfony) and frontend (React).}
       \resumeItemListEnd
 
     \resumeSubheading
       {VtSoftware}{Playa del Carmen, Mexico}
       {Software Engineer}{Jun. 2017 - May 2018}
       \resumeItemListStart
-        \resumeItem{VtInventory}
-          {Description}
-        \resumeItem{VtEmployees}
-          {Description}
+        \resumeItem{Vacation Clubs Payroll Software}
+          {Modeled and designed according to customer needs. Bootstraped
+            project on PHP/Laravel and Vue.js, integrated to an existing sales
+            system DB.}
+        \resumeItem{Hotel Inventory Software}
+          {Modeled and designed according to customer needs. Bootstraped project
+          on PHP/Laravel and jQuery.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -151,15 +163,13 @@
   \resumeSubHeadingListEnd
 
 \section{Skills}
- \resumeSubHeadingListStart
-   \item{
-     \textbf{Languages}{: JS, Typescript, Node, Python, Matlab, C, Java, SQL, PHP}
-     \hfill
-     \textbf{Technologies}{: React, Phaser, Raspberry Pi, Vuejs, Laravel,
+\begin{tabular}{p{9cm}p{9cm}}
+  \textbf{Languages}{: JS, TS, Node, Python, Matlab, C, Java, SQL, PHP}
+  \hfill &
+  \textbf{Technologies}{: React, Phaser, Raspberry Pi, Vuejs, Laravel,
        Symfony, Linux, Sails-js, Redis, AWS,
        Echarts, Socket-io}
-   }
- \resumeSubHeadingListEnd
+  \end{tabular}
 
 
 \end{document}

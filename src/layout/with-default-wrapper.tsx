@@ -7,7 +7,7 @@ export default Page => () => {
     return (
         <>
             <Helmet>
-                <title>Joshua!</title>
+                <title>Joshua Martínez</title>
             </Helmet>
             <Page/>
         </>
