@@ -2,6 +2,8 @@ import React from 'react';
 import "../styles/index.scss";
 import withNavbar from '../layout/with-navbar';
 import DescriptionDisplay from '../components/description-display';
+import SimpleBar from 'simplebar-react';
+import 'simplebar/dist/simplebar.min.css';
 
 const Index = () => (
     <>
@@ -13,7 +15,7 @@ const Index = () => (
                             Joshua Martínez
                         </h3>
                         <DescriptionDisplay className="has-text-centered block"/>
-                        <div className="scrollable">
+                        <SimpleBar forceVisible="y" autoHide={false} className="scrollable">
                             <h1 className="subtitle is-1 has-text-centered">Work & Projects</h1>
                             <div className="tile is-ancestor">
                                 <div className="tile is-vertical">
@@ -77,7 +79,7 @@ const Index = () => (
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </SimpleBar>
                     </div>
                 </div>
             </div>
