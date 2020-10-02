@@ -26,9 +26,10 @@ const Navbar = () => {
             <div className="navbar-brand">
                 <a className="navbar-item" href="/">
                     <h4 className="subtitle is-4">
-                        Software Developer
+                        mynjj
                     </h4>
                 </a>
+                <h4 className="navbar-item is-hidden-desktop is-size-6 has-text-weight-semibold">Software Developer</h4>
                 <a className={`navbar-burger ${navOpen&&'is-active'}`} onClick={toggleNavigation}>
                     <span></span>
                     <span></span>
@@ -37,6 +38,7 @@ const Navbar = () => {
             </div>
             <div className={`navbar-menu animate__animated animate__slideInDown animate__faster ${navOpen&&'is-active'}`}>
                 <div className="navbar-start is-hidden-touch">
+                    <h4 className="navbar-item is-size-6 has-text-weight-semibold">Software Developer</h4>
                     <Github className="navbar-item" />
                     <LinkedIn className="navbar-item" />
                 </div>
