@@ -27,6 +27,15 @@ body {
     height: 10px;
 }
 
+.welcome-text{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    .title:not(:last-child){
+        margin-bottom: 0;
+    }
+}
+
 .mobile-links{
     justify-content: center;
 }

@@ -10,6 +10,7 @@ const descriptions = [
     'Passionate',
     'Free',
     'Curious',
+    'Friendly',
     'Earthling',
     'Thinker',
     'Existent?..',

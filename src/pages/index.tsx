@@ -11,9 +11,13 @@ const Index = () => (
             <div className="hero">
                 <div className="hero-body">
                     <div className="container">
-                        <h3 className="title block is-3 has-text-right">
-                            Joshua Martínez
-                        </h3>
+                        <div className="welcome-text">
+                            <span className="mr-2">Hi! I'm</span>
+                            <h3 className="title is-3 has-text-right">
+                                Joshua Martínez
+                            </h3>
+                            <span className="ml-2"> a </span>
+                        </div>
                         <DescriptionDisplay className="has-text-centered block"/>
                         <SimpleBar forceVisible="y" autoHide={false} className="scrollable">
                             <h1 className="subtitle is-1 has-text-centered">Work & Projects</h1>
