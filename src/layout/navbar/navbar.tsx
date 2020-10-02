@@ -26,7 +26,7 @@ const Navbar = () => {
             <div className="navbar-brand">
                 <a className="navbar-item" href="/">
                     <h4 className="subtitle is-4">
-                        mynjj
+                        Software Developer
                     </h4>
                 </a>
                 <a className={`navbar-burger ${navOpen&&'is-active'}`} onClick={toggleNavigation}>
