@@ -1,32 +1,39 @@
-import _ from 'lodash';
+import _ from 'lodash/fp';
 
-const descriptions = [
+const nouns = [
+    'Lover',
     'Human',
     'Programmer',
-    'Lover',
-    'Versatile',
-    'Mexican',
-    'Persistent',
-    'Passionate',
-    'Free',
-    'Curious',
-    'Friendly',
-    'Earthling',
-    'Thinker',
-    'Existent?..',
-    'Contemplative',
-    'Thankful',
-    'Lucky',
-    'Learner',
-    'Diligent',
-    'Reliable',
     'Developer',
     'Creator',
     'Computer lover',
-    'Responsible'
+    'Earthling',
+    'Learner',
+    'Thinker',
 ];
 
-const randomDescription = () => _.shuffle(descriptions).join('. ');
+const adjectives = [
+    'Contemplative',
+    'Curious',
+    'Diligent',
+    'Free',
+    'Friendly',
+    'Lucky',
+    'Mexican',
+    'Passionate',
+    'Persistent',
+    'Reliable',
+    'Responsible',
+    'Thankful',
+    'Versatile',
+];
+
+const taken = Math.min(nouns.length, adjectives.length);
+const randomSample = _.flow(_.shuffle, _.take(taken));
+const randomDescription = () => {
+    const samples = _.zip(randomSample(nouns), randomSample(adjectives));
+    return _.flatten(samples).join('. ');
+}
 
 class DescriptionDisplay {
     stringToShow: string = '';
