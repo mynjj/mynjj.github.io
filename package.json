@@ -1,8 +1,8 @@
 {
   "name": "mynjj-portfolio",
   "private": true,
-  "description": "Small portfolio project.",
-  "version": "0.1.0",
+  "description": "Portfolio website for Diego Joshua Martínez Pineda. Software Developer.",
+  "version": "1.0.0",
   "author": "joshua",
   "dependencies": {
     "animate.css": "^4.1.1",
@@ -31,7 +31,8 @@
     "prettier": "2.1.0"
   },
   "keywords": [
-    "gatsby"
+    "portfolio",
+    "website"
   ],
   "license": "0BSD",
   "scripts": {
@@ -46,9 +47,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/mynjj/mynjj.github.io"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/mynjj/mynjj.github.io/issues"
   }
 }

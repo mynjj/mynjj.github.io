@@ -1,52 +1,60 @@
-html, body, #___gatsby, #gatsby-focus-wrapper{
-    height: 100%;
-}
+$bg: #411636;
+$fg: #e9becd;
 
 $screen-sm: 768px;
 $screen-md: 1024px;
 $screen-lg: 1200px;
 $screen-xl: 1600px;
+
+html, body, #___gatsby, #gatsby-focus-wrapper{
+    height: 100%;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
-    font-size:15px;
-    //line-height:1.6;
+    font-size:12px;
 
     @media screen and (min-width:$screen-sm){
-        font-size:16px;
+        font-size:14px;
     }
 
     @media screen and (min-width:$screen-lg){
-        font-size:18px;
+        font-size:16px;
     }
 
     @media screen and (min-width:$screen-xl){
-        font-size:20px;
+        font-size:18px;
     }
 
-    background-color: #411636;
+    background-color: $bg;
+    color: $fg;
 }
 
 h1.header-message {
-    color: #e9becd;
-    font-size: 3rem;
+    font-size: 3em;
+    text-align: center;
 
     display: flex; // for text cursor centered
 }
 
 .links-bar{
+    opacity: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 60%;
     max-width: 600px;
     margin-top: 50px;
+    a{
+        text-decoration: none;
+    }
     .link-icon{
         font-size: 2rem;
-        color: #e9becd;
+        color: $fg;
     }
     .text-icon{
-        color: #e9becd;
-        border: 2px solid #e9becd;
+        color: $fg;
+        border: 2px solid $fg;
         box-sizing: border-box;
         height: 2rem;
         width: 2rem;
@@ -58,10 +66,24 @@ h1.header-message {
     }
 }
 
+.links-bar.show{
+    animation: disolve-in 1s;
+    opacity: 1;
+}
+
+@keyframes disolve-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .text-cursor{
     width: 2px;
-    background-color: #e9becd;
-    height: 100%;
+    background-color: $fg;
+    height: 4rem;
     display: inline-block;
     margin-left: 0.1em;
 }

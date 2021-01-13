@@ -1,21 +1,23 @@
 module.exports = {
   siteMetadata: {
     title: `Joshua Martínez`,
-    description: `Portfolio website`,
-    author: `@mynjj`,
+    description: `Portfolio website for Diego Joshua Martínez Pineda. Software Developer based in Copenhagen. Student of Msc. in Computer Science at ITU. Experienced in JS, React, Vue.js, Node.js, Express, PHP, Symfony, Laravel. With knowledge of Python, Java, C.`,
+    author: `Diego Joshua Martínez Pineda`,
   },
   plugins: [
-      'gatsby-plugin-sass',
+    'gatsby-plugin-sass',
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    /*
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`
+      }
+    }
+    */
     /*
     {
       resolve: `gatsby-plugin-manifest`,
@@ -30,8 +32,5 @@ module.exports = {
       },
     },
     */
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
