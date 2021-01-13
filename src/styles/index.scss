@@ -1,58 +1,79 @@
-body {
-    background-image: url(../images/bg-1.jpg);
+html, body, #___gatsby, #gatsby-focus-wrapper{
+    height: 100%;
 }
 
-.box.dark-box{
-    color: white;
-    background-color: black;
-    .title{
-        color: white;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1200px;
+$screen-xl: 1600px;
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size:15px;
+    //line-height:1.6;
+
+    @media screen and (min-width:$screen-sm){
+        font-size:16px;
     }
-}
 
-.hero{
-    .hero-body{
-        padding-top: 2rem;
+    @media screen and (min-width:$screen-lg){
+        font-size:18px;
     }
+
+    @media screen and (min-width:$screen-xl){
+        font-size:20px;
+    }
+
+    background-color: #411636;
 }
 
-.box {
-    opacity: 0.7;
+h1.header-message {
+    color: #e9becd;
+    font-size: 3rem;
+
+    display: flex; // for text cursor centered
 }
 
-.scrollable{
-    height: calc(100vh - 20rem);
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-
-::-webkit-scrollbar {
-    width: 0px;
-    height: 10px;
-}
-
-.welcome-text{
+.links-bar{
     display: flex;
-    justify-content: center;
-    align-items: baseline;
-    .title:not(:last-child){
-        margin-bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    max-width: 600px;
+    margin-top: 50px;
+    .link-icon{
+        font-size: 2rem;
+        color: #e9becd;
+    }
+    .text-icon{
+        color: #e9becd;
+        border: 2px solid #e9becd;
+        box-sizing: border-box;
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-weight: bold;
     }
 }
 
-.mobile-links{
-    justify-content: center;
+.text-cursor{
+    width: 2px;
+    background-color: #e9becd;
+    height: 100%;
+    display: inline-block;
+    margin-left: 0.1em;
+}
+.text-cursor.hidden{
+    visibility: hidden;
 }
 
-.DescriptionDisplay{
-    font-size: 3.5rem;
-    white-space: nowrap;
-    color: #878787;
-    font-weight: lighter;
-    overflow: hidden;
+main {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 

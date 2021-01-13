@@ -1,94 +1,89 @@
-import React from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
+import cvPdf from '../public-cv.pdf';
+import {MdEmail} from 'react-icons/md';
+import {FaGithub, FaLinkedin} from 'react-icons/fa';
+
 import "../styles/index.scss";
-import withNavbar from '../layout/with-navbar';
-import DescriptionDisplay from '../components/description-display';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
 
-const Index = () => (
-    <>
-        <div className="parallax-container">
-            <div className="hero">
-                <div className="hero-body">
-                    <div className="container">
-                        <div className="welcome-text">
-                            <span className="mr-2">Hi! I'm</span>
-                            <h3 className="title is-3 has-text-right">
-                                Joshua Martínez
-                            </h3>
-                            <span className="ml-2"> a </span>
-                        </div>
-                        <DescriptionDisplay className="has-text-centered block"/>
-                        <SimpleBar forceVisible="y" autoHide={false} className="scrollable">
-                            <h1 className="subtitle is-1 has-text-centered">Work & Projects</h1>
-                            <div className="tile is-ancestor">
-                                <div className="tile is-vertical">
-                                    <div className="tile">
-                                        <div className="tile is-parent is-vertical">
-                                            <div className="tile is-child box">
-                                                <h3 className="title is-4">Coca-Cola promotional game</h3>
-                                                <p>Game for marketing stands of Coca-Cola. Soccer video game with Python/Pygame controlled with a Wii controller running on Raspberry Pi's.</p>
-                                            </div>
-                                            <div className="tile is-child box dark-box">
-                                                <h3 className="title is-4">Airport Lounge management software</h3>
-                                                <p>Software spawning several operations of the company: payroll, restaurant management, warehouse. Frontend with React, backend with PHP/Symfony.</p>
-                                            </div>
-                                        </div>
-                                        <div className="tile is-parent">
-                                            <div className="tile is-child box">
-                                                <h3 className="title is-4">IOT devices monitor</h3>
-                                                <p>Central control of IOT devices for software updates, and remote control for technical support. Management of server SSH tunnels with Node.js.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tile is-parent">
-                                        <div className="tile is-child box">
-                                            <h3 className="title is-4">Airport Lounge App</h3>
-                                            <p>Android and iOS app using React Native, to schedule services, track your flight, among other things. Integrating to an existing backend and new features added to a Backend-for-Frontend running on Node.js.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="tile is-parent is-4">
-                                    <div className="tile is-child box dark-box">
-                                        <h3 className="title is-4">Employee time clock</h3>
-                                        <p>Raspberry pi's with multiple identification features, integrated to an existing payroll software. Continuously updating the server, but also capable of working offline.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tile is-ancestor">
-                                <div className="tile is-parent is-4">
-                                    <div className="tile box is-child">
-                                        <h3 className="title is-4">Restaurant software</h3>
-                                        <p>Restaurant software with several custom requirements, integrating to ticket printers, map of the restaurant.</p>
-                                    </div>
-                                </div>
-                                <div className="tile is-parent">
-                                    <div className="tile box dark-box is-child">
-                                        <h3 className="title is-4">Scotiabank's Virtual Pride Parade</h3>
-                                        <p>Basic MMORPG resembling Mexico City streets for 2020's stay@home pride parade. WebSocket servers on Node.js running on several AWS EC2 instances for redundancy. </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="tile is-ancestor">
-                                <div className="tile is-parent is-8">
-                                    <div className="tile box dark-box is-child">
-                                        <h3 className="title is-4">Vacation clubs payroll software</h3>
-                                        <p>Integrating an existing sales system to calculate the commissions on the sales processes. PHP/Laravel backend with Vue.js </p>
-                                    </div>
-                                </div>
-                                <div className="tile is-parent">
-                                    <div className="tile box is-child">
-                                        <h3 className="title is-4">Hotel inventory software</h3>
-                                        <p>Solution to keep track of hotel assets. PHP/Laravel with an SQLServer db as backend and a jQuery frontend </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </SimpleBar>
-                    </div>
-                </div>
-            </div>
+const typeAction = (current, target)=>{
+  let i=0;
+  for(i=0; current[i]&&target[i]&&current[i]==target[i];i++);
+  return {
+    toKeep: current.substring(0,i),
+    toDelete: current.substring(i, current.length),
+    toAdd: target.substring(i, target.length)
+  };
+};
+
+const Type = ({message}) => {
+  const [typed, setTyped] = useState('');
+  const [blinkingClass, setBlinkingClass] = useState('hidden');
+
+  const blinkingInterval = useCallback(()=>{
+    setBlinkingClass('');
+  }, []);
+
+  useEffect(()=>{
+    const tId = setInterval(()=>{
+      if(!blinkingClass){
+        setBlinkingClass('hidden');
+      }
+      else {
+        setBlinkingClass('');
+      }
+    }, 730);
+    return ()=>{
+      clearInterval(tId);
+    };
+  }, [blinkingClass]);
+
+  const executeAction = useCallback(()=>{
+    setTyped(t=>{
+      const action = typeAction(t, message);
+      if(action.toDelete){
+        blinkingInterval();
+        return t.slice(0, t.length-1);
+      }
+      if(action.toAdd){
+        blinkingInterval();
+        return t+action.toAdd[0];
+      }
+      return t;
+    })
+  }, [message, blinkingInterval]);
+  useEffect(()=>{
+    const tId = setTimeout(executeAction, 200);
+    return ()=>clearTimeout(tId);
+  }, [executeAction, typed]);
+  return (
+    <>{typed}<div className={`text-cursor ${blinkingClass}`}/></>
+  );
+};
+
+export default () => (
+  <main>
+    <h1 className="header-message"><Type message="Hi... I'm Joshua!"/></h1>
+    <div className="links-bar">
+      <a href="https://github.com/mynjj" target="_blank">
+        <div className="link-icon">
+          <FaGithub/>
         </div>
-    </>
+      </a>
+      <a target="_blank" href="https://www.linkedin.com/in/joshua-mart%C3%ADnez-941668145/">
+        <div className="link-icon">
+          <FaLinkedin/>
+        </div>
+      </a>
+      <a target="_blank" href={cvPdf}>
+        <div className="text-icon">
+          CV
+        </div>
+      </a>
+      <a href="mailto:djoshuamartinezpineda@gmail.com">
+        <div className="link-icon">
+          <MdEmail/>
+        </div>
+      </a>
+    </div>
+  </main>
 );
-
-export default withNavbar(Index);
