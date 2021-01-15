@@ -1,0 +1,63 @@
+$fg: #411636;
+$bg: #e9becd;
+
+main.hello-page {
+    height: 100%;
+    width: 100%;
+    background-color: $bg;
+    color: $fg;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .links-bar{
+        opacity: 1;
+        .link-icon{
+            color: $fg;
+        }
+        .text-icon{
+            color: $fg;
+            border-color: $fg;
+        }
+    }
+}
+
+.description{
+    animation: disolve-in 1s;
+    width: 70%;
+    max-width: 600px;
+}
+
+.prev-page{
+    height: 0;
+    background-color: $fg;
+}
+
+.prev-page.grow{
+    animation: grow 2s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.main.hello-page.leaving{
+    animation: slide-down 1s;
+    transform: translateY(100%);
+}
+
+@keyframes slide-down{
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+p {
+    font-size: 1.7em;
+}
+

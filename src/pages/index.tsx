@@ -1,18 +1,23 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect, useCallback, useRef} from 'react';
 import TypingAnimation from '../components/TypingAnimation';
 import SEO from '../components/SEO';
+import LinksBar from '../components/LinksBar';
 import cvPdf from '../public-cv.pdf';
 import {MdEmail} from 'react-icons/md';
 import {FaGithub, FaLinkedin} from 'react-icons/fa';
+import {IoIosArrowDown} from 'react-icons/io';
+import {navigate} from 'gatsby';
+import {useVerticalBehaviour, downConfig} from '../utils/vertical-behaviour';
 
-import "../styles/index.scss";
+import "../styles/main.scss";
 
-const idleTime = 700;
+const idleTime = 700; // Pauses between typed messages
 const messages = [
   'Hi!!!',
   "Hi... I'm Joshua.",
   "Hi... I'm Joshua!",
 ];
+
 
 export default () => {
   const [messageIndex, setMessageIndex] = useState(0);
@@ -28,39 +33,36 @@ export default () => {
       );
     }
   }, [messageIndex]);
+
+  const [leaving, setLeaving] = useState(false);
+  const nextPage = useCallback(()=>{
+    setLeaving(true);
+    setTimeout(()=>navigate('/hello'), 2200);
+  }, []);
+
+  const {containerProps} = useVerticalBehaviour({
+    ...downConfig,
+    callback: nextPage
+  });
+
   return (
     <>
       <SEO title="Software Developer"/>
-      <main>
+      <main className={`landing-page ${leaving?'leaving':''}`}
+        {...containerProps}
+      >
         <h1 className="header-message">
           <TypingAnimation
             message={messages[messageIndex]}
             onMessageTyped={nextMessage}
           />
         </h1>
-        <div className={`links-bar ${greetingFinished?'show':''}`}>
-          <a href="https://github.com/mynjj" target="_blank">
-            <div className="link-icon">
-              <FaGithub/>
-            </div>
-          </a>
-          <a target="_blank" href="https://www.linkedin.com/in/joshua-mart%C3%ADnez-941668145/">
-            <div className="link-icon">
-              <FaLinkedin/>
-            </div>
-          </a>
-          <a target="_blank" href={cvPdf}>
-            <div className="text-icon">
-              CV
-            </div>
-          </a>
-          <a href="mailto:djoshuamartinezpineda@gmail.com">
-            <div className="link-icon">
-              <MdEmail/>
-            </div>
-          </a>
-        </div>
+        <LinksBar className={greetingFinished?'show':''} />
       </main>
+      <div className={`scroll-more-bar ${greetingFinished?'glow':''}`}>
+        <IoIosArrowDown onClick={nextPage} />
+      </div>
+      <div className={`next-page ${leaving?'grow':''}`}/>
     </>
   );
 }

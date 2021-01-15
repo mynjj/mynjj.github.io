@@ -1,9 +1,10 @@
 import React from 'react';
-import "../styles/index.scss";
+
+import "../styles/main.scss";
 
 export default () => {
   return (
-    <main>
+    <main className="landing-page">
       <h1 className="header-message">Oops!</h1>
       <p>This page doesn't exist.</p>
     </main>

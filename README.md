@@ -14,7 +14,7 @@ Notes for myself:
 
 - To update the website:
 
-`yarn run develop`
+`yarn dev`
 
 # Deploy
 

@@ -11,12 +11,13 @@ html, body, #___gatsby, #gatsby-focus-wrapper{
 }
 
 body{
+    margin: 0px;
     font-family: 'Roboto', sans-serif;
     font-size:12px;
 
-    @media screen and (min-width:$screen-sm){
-        font-size:14px;
-    }
+    //@media screen and (min-width:$screen-sm){
+        //font-size:14px;
+    //}
 
     @media screen and (min-width:$screen-lg){
         font-size:16px;
@@ -27,7 +28,6 @@ body{
     }
 
     background-color: $bg;
-    color: $fg;
 }
 
 h1.header-message {
@@ -66,7 +66,34 @@ h1.header-message {
     }
 }
 
-.links-bar.show{
+.scroll-more-bar{
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    font-size:5em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: $fg;
+}
+
+.glow{
+    animation: glow 3s infinite;
+}
+
+@keyframes glow{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.3;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.show{
     animation: disolve-in 1s;
     opacity: 1;
 }
@@ -80,6 +107,42 @@ h1.header-message {
     }
 }
 
+main.landing-page.leaving{
+    animation: slide-out 1s;
+    transform: translateY(-100%);
+}
+
+@keyframes slide-out{
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+.next-page{
+    height: 0;
+    background-color: $fg;
+}
+
+.next-page.grow{
+    animation: grow 2s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+@keyframes grow{
+    0%{
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
 .text-cursor{
     width: 2px;
     background-color: $fg;
@@ -87,15 +150,17 @@ h1.header-message {
     display: inline-block;
     margin-left: 0.1em;
 }
-.text-cursor.hidden{
+.hidden{
     visibility: hidden;
 }
 
-main {
+main.landing-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: $bg;
+    color: $fg;
 }
 
