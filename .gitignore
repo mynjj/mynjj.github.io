@@ -67,3 +67,10 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# tex compilation files
+public-cv/*.log
+public-cv/*.aux
+public-cv/*.out
+public-cv/*.synctex.gz
+public-cv/auto/*
