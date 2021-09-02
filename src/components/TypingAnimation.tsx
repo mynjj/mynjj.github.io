@@ -62,6 +62,6 @@ export default ({message, onMessageTyped})=>{
 
   const bClass = blinkerVisible?'':'hidden';
   return (
-    <>{typed}<div className={`text-cursor ${bClass}`} /></>
+    <div className='typed-container'>{typed}<div className={`text-cursor ${bClass}`} /></div>
   )
 }

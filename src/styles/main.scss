@@ -35,6 +35,7 @@ h1.header-message {
     text-align: center;
 
     display: flex; // for text cursor centered
+    max-width: 80%;
 }
 
 .links-bar{
@@ -146,12 +147,18 @@ main.landing-page.leaving{
 .text-cursor{
     width: 2px;
     background-color: $fg;
-    height: 4rem;
+    height: 1.2em;
     display: inline-block;
     margin-left: 0.1em;
+    position: absolute;
+    bottom: 0;
 }
 .hidden{
     visibility: hidden;
+}
+
+.typed-container{
+    position: relative;
 }
 
 main.landing-page {

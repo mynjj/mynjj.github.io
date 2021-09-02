@@ -37,7 +37,7 @@ export default () => {
   const [leaving, setLeaving] = useState(false);
   const nextPage = useCallback(()=>{
     setLeaving(true);
-    setTimeout(()=>navigate('/hello'), 2200);
+    setTimeout(()=>navigate('/hello'), 2200); // should be enough time for the leaving animation
   }, []);
 
   const {containerProps} = useVerticalBehaviour({
